@@ -32,7 +32,7 @@ export function generatePersonStructuredData() {
       `https://linkedin.com/in/${selfData.socials_username.linkedin}`,
       `https://instagram.com/${selfData.socials_username.instagram}`,
     ],
-    url: "https://aarab.vercel.app",
+    url: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://animeshd.vercel.app/",
     description: selfData.bio,
     knowsAbout: skills,
   };
@@ -43,7 +43,7 @@ export function generateWebsiteStructuredData() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Animesh Abhi Dubey - Portfolio",
-    url: "https://aarab.vercel.app",
+    url: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://animeshd.vercel.app/",
     description:
       "Animesh Abhi Dubey's portfolio featuring projects in React, Next.js, and modern web development",
     author: {
@@ -68,8 +68,8 @@ export function generateOrganizationStructuredData() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: selfData.name,
-    url: "https://aarab.vercel.app",
-    logo: "https://aarab.vercel.app/images/logo.png",
+    url: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://animeshd.vercel.app/",
+    logo: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}/images/logo.png` : "https://animeshd.vercel.app/images/logo.png",
     description: selfData.bio,
     founder: {
       "@type": "Person",
@@ -83,50 +83,4 @@ export function generateOrganizationStructuredData() {
   };
 }
 
-export function generateResumeStructuredData() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "DigitalDocument",
-    name: "Animesh Abhi Dubey Resume",
-    description:
-      "Professional resume of Animesh Abhi Dubey - Student Developer specializing in Full-Stack Web Development",
-    url: "https://aarab.vercel.app/resume",
-    author: {
-      "@type": "Person",
-      name: selfData.name,
-      email: selfData.email,
-      jobTitle: selfData.jobTitle,
-      worksFor: {
-        "@type": "Organization",
-        name: selfData.workFor,
-      },
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: selfData.current_location.city,
-        addressRegion: selfData.current_location.state,
-        addressCountry: selfData.current_location.country,
-      },
-      sameAs: [
-        `https://github.com/${selfData.socials_username.github}`,
-        `https://linkedin.com/in/${selfData.socials_username.linkedin}`,
-      ],
-    },
-    dateModified: new Date().toISOString(),
-    fileFormat: "application/pdf",
-    contentUrl: "https://aarab.vercel.app/docs/MyResume.pdf",
-    downloadUrl: "https://aarab.vercel.app/docs/MyResume.pdf",
-    keywords: [
-      "Software Developer",
-      "Full Stack Developer",
-      "React Developer",
-      "Next.js Developer",
-      "JavaScript Developer",
-      "TypeScript Developer",
-      "Student Developer",
-      "Computer Science",
-      "KIIT University",
-      "Bhubaneswar",
-      "India",
-    ],
-  };
-}
+

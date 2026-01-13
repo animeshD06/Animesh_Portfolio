@@ -2,8 +2,7 @@ import Link from "next/link";
 import { IconType } from "react-icons";
 import { motion } from "motion/react";
 
-import { SiLeetcode } from "react-icons/si";
-import { PiTelegramLogo } from "react-icons/pi";
+
 import { FaGithub, FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa6";
 
 import { selfData } from "@/constant";

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Animesh Abhi Dubey",
-      url: "https://aarab.vercel.app",
+      url: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://animeshd.vercel.app/",
     },
   ],
   creator: "Animesh Abhi Dubey",
@@ -30,13 +30,13 @@ export const metadata: Metadata = {
   category: "Portfolio",
   classification: "Software Development",
   keywords: keywords,
-  metadataBase: new URL("https://aarab.vercel.app"),
+  metadataBase: new URL(process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://animeshd.vercel.app/"),
 
 
   alternates: {
-    canonical: "https://aarab.vercel.app",
+    canonical: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://animeshd.vercel.app/",
     languages: {
-      "en-US": "https://aarab.vercel.app",
+      "en-US": process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://animeshd.vercel.app/",
     },
   },
   robots: {
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     google: "google-site-verification-code",
     yandex: "yandex-verification-code",
     other: {
-      "me": ["mailto:aarab.nishchal@gmail.com"],
+      "me": ["mailto:Animeshabhidubey182@gmail.com"],
     },
   },
   appleWebApp: {
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     title: "Animesh Abhi Dubey | Student Developer & Creative Coder",
     description:
       "Explore Animesh Abhi Dubey’s portfolio featuring projects in React, Next.js, AI, and developer tools. Discover a world of creative web applications and open-source experiments.",
-    url: "https://aarab.vercel.app",
+    url: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://animeshd.vercel.app/",
     siteName: "Animesh Abhi Dubey",
     images: [
       {

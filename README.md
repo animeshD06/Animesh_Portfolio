@@ -1,4 +1,4 @@
-# 🌟 Aarab Nishchal's Portfolio
+# 🌟 Animesh's Portfolio
 
 <div align="center">
 
@@ -152,7 +152,7 @@ A modern, responsive portfolio website built with **Next.js 15** and **React 19*
    ```
 
 5. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+   Navigate to [https://animeshd.vercel.app/](https://animeshd.vercel.app/)
 
 ### **Build Commands**
 
@@ -162,6 +162,65 @@ A modern, responsive portfolio website built with **Next.js 15** and **React 19*
 | `npm run build` | Build for production                    |
 | `npm run start` | Start production server                 |
 | `npm run lint`  | Run ESLint checks                       |
+
+## 🚀 Deployment
+
+### **Vercel Deployment**
+
+1. **Connect your repository**
+   - Go to [vercel.com](https://vercel.com) and sign in
+   - Click "New Project" and import your GitHub repository
+
+2. **Configure environment variables**
+   - In your Vercel project settings, go to "Environment Variables"
+   - Add the following variables:
+     ```
+     email_from=your-email@gmail.com
+     email_password=your-app-password
+     QEV_API_KEY=your-qev-api-key
+     ```
+
+3. **Deploy**
+   - Vercel will automatically build and deploy your app
+   - Your site will be live at `https://animeshd.vercel.app/`
+
+### **Render Deployment**
+
+1. **Connect your repository**
+   - Go to [render.com](https://render.com) and sign in
+   - Click "New +" and select "Web Service"
+   - Connect your GitHub repository
+
+2. **Configure the service**
+   - **Name:** Your project name
+   - **Environment:** Node
+   - **Build Command:** `npm run build`
+   - **Start Command:** `npm start`
+
+3. **Add environment variables**
+   - In the "Environment" section, add:
+     ```
+     email_from=your-email@gmail.com
+     email_password=your-app-password
+     QEV_API_KEY=your-qev-api-key
+     ```
+
+4. **Deploy**
+   - Click "Create Web Service"
+   - Render will build and deploy your application
+
+### **Environment Variables Setup**
+
+Copy `.env.example` to `.env.local` and fill in your values:
+
+```bash
+cp .env.example .env.local
+```
+
+**Required Variables:**
+- `email_from`: Your Gmail address
+- `email_password`: Gmail app password (not your regular password)
+- `QEV_API_KEY`: API key from [QuickEmailVerification](https://quickemailverification.com/)
 
 ## ⚙️ Customization
 
@@ -233,5 +292,6 @@ _Student Developer | Chief Problem Solver | Solution Sorcerer_
 [![Portfolio](https://img.shields.io/badge/Portfolio-aarab.vercel.app-9333ea?style=for-the-badge)](https://aarab.vercel.app)
 
 </div>
-#   a n i m e s h  
+#   a n i m e s h 
+ 
  
