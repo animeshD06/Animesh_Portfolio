@@ -29,27 +29,28 @@ export async function POST(request: Request) {
     );
   }
 
-  try {
-    const qevResponse = await fetch(
-      `http://api.quickemailverification.com/v1/verify?email=${senderEmail}&apikey=${process.env.QEV_API_KEY}`
-    );
-
-    const data = await qevResponse.json();
-
-    console.log("QuickEmailVerification response:", data);
-
-    if (data.result !== "valid") {
-      return NextResponse.json(
-        { error: "Email address is not valid" },
-        { status: 400 }
+  // QuickEmailVerification is optional - only reject if explicitly invalid
+  if (process.env.QEV_API_KEY) {
+    try {
+      const qevResponse = await fetch(
+        `http://api.quickemailverification.com/v1/verify?email=${senderEmail}&apikey=${process.env.QEV_API_KEY}`
       );
+
+      const data = await qevResponse.json();
+
+      console.log("QuickEmailVerification response:", data);
+
+      // Only reject if explicitly invalid (not on errors or unknown status)
+      if (data.result === "invalid") {
+        return NextResponse.json(
+          { error: "Email address is not valid" },
+          { status: 400 }
+        );
+      }
+    } catch (err) {
+      // Log but don't block - allow email through if validation service fails
+      console.warn("QuickEmailVerification API failed, proceeding anyway:", err);
     }
-  } catch (err) {
-    console.error("QuickEmailVerification API failed:", err);
-    return NextResponse.json(
-      { error: "Email validation service unavailable" },
-      { status: 500 }
-    );
   }
 
   const htmlContent = await pretty(
