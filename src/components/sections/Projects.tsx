@@ -7,6 +7,7 @@ import { nasalization } from "@/app/fonts";
 
 import { ProjectCard } from "../Cards";
 import { projectsData } from "@/constant/";
+import { projectsData2 } from "@/constant/projects";
 
 export const Projects = () => {
   const ref = useRef(null);
@@ -48,6 +49,17 @@ export const Projects = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           {projectsData.map((proj, index) => (
+            <ProjectCard
+              key={proj.name}
+              index={index}
+              title={proj.name}
+              desc={proj.description}
+              github={proj.github_link}
+              demo={proj.demo}
+              tech={proj.tech}
+            />
+          ))}
+          {projectsData2.map((proj, index) => (
             <ProjectCard
               key={proj.name}
               index={index}
